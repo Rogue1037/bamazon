@@ -14,41 +14,43 @@ CREATE TABLE products (
 
     price INT NOT NULL,
 
-    stock_quantity INT NOT NULL
+    stock_quantity INT NOT NULL,
+
+    PRIMARY KEY (item_id)
 );
 
 INSERT INTO products (product_name, department_name, price, stock_quantity)
-VALUES ("Madden 19", "Electronics", 60, 33);
+VALUES ("madden 19", "electronics", 60, 33);
 
 INSERT INTO products (product_name, department_name, price, stock_quantity)
-VALUES ("Madden 19", "Electronics", 60, 33);
+VALUES ("bananas", "food", 2, 10);
 
 INSERT INTO products (product_name, department_name, price, stock_quantity)
-VALUES ("Madden 19", "Electronics", 60, 33);
+VALUES ("master luke", "toys", 20, 50);
 
 INSERT INTO products (product_name, department_name, price, stock_quantity)
-VALUES ("Madden 19", "Electronics", 60, 33);
+VALUES ("milk", "food", 3, 20);
 
 INSERT INTO products (product_name, department_name, price, stock_quantity)
-VALUES ("Madden 19", "Electronics", 60, 33);
+VALUES ("pokemon cards", "toys", 5, 10);
 
 INSERT INTO products (product_name, department_name, price, stock_quantity)
-VALUES ("Madden 19", "Electronics", 60, 33);
+VALUES ("l3", "electronics", 800, 4);
 
 INSERT INTO products (product_name, department_name, price, stock_quantity)
-VALUES ("Madden 19", "Electronics", 60, 33);
+VALUES ("donutz", "food", 3, 20);
 
 INSERT INTO products (product_name, department_name, price, stock_quantity)
-VALUES ("Madden 19", "Electronics", 60, 33);
+VALUES ("snickers", "food", 1, 75);
 
 INSERT INTO products (product_name, department_name, price, stock_quantity)
-VALUES ("Madden 19", "Electronics", 60, 33);
+VALUES ("storage bins", "home", 5, 100);
 
 INSERT INTO products (product_name, department_name, price, stock_quantity)
-VALUES ("Madden 19", "Electronics", 60, 33);
+VALUES ("love seat", "home", 30, 20);
 
 INSERT INTO products (product_name, department_name, price, stock_quantity)
-VALUES ("Madden 19", "Electronics", 60, 33);
+VALUES ("rogue one", "electronics", 8, 50);
 
 INSERT INTO products (product_name, department_name, price, stock_quantity)
-VALUES ("Madden 19", "Electronics", 60, 33);
+VALUES ("moonshine", "food", 10, 33);
