@@ -54,3 +54,5 @@ VALUES ("rogue one", "electronics", 8, 50);
 
 INSERT INTO products (product_name, department_name, price, stock_quantity)
 VALUES ("moonshine", "food", 10, 33);
+
+SELECT * FROM products;
