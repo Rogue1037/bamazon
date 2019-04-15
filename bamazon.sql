@@ -17,3 +17,38 @@ CREATE TABLE products (
     stock_quantity INT NOT NULL
 );
 
+INSERT INTO products (product_name, department_name, price, stock_quantity)
+VALUES ("Madden 19", "Electronics", 60, 33);
+
+INSERT INTO products (product_name, department_name, price, stock_quantity)
+VALUES ("Madden 19", "Electronics", 60, 33);
+
+INSERT INTO products (product_name, department_name, price, stock_quantity)
+VALUES ("Madden 19", "Electronics", 60, 33);
+
+INSERT INTO products (product_name, department_name, price, stock_quantity)
+VALUES ("Madden 19", "Electronics", 60, 33);
+
+INSERT INTO products (product_name, department_name, price, stock_quantity)
+VALUES ("Madden 19", "Electronics", 60, 33);
+
+INSERT INTO products (product_name, department_name, price, stock_quantity)
+VALUES ("Madden 19", "Electronics", 60, 33);
+
+INSERT INTO products (product_name, department_name, price, stock_quantity)
+VALUES ("Madden 19", "Electronics", 60, 33);
+
+INSERT INTO products (product_name, department_name, price, stock_quantity)
+VALUES ("Madden 19", "Electronics", 60, 33);
+
+INSERT INTO products (product_name, department_name, price, stock_quantity)
+VALUES ("Madden 19", "Electronics", 60, 33);
+
+INSERT INTO products (product_name, department_name, price, stock_quantity)
+VALUES ("Madden 19", "Electronics", 60, 33);
+
+INSERT INTO products (product_name, department_name, price, stock_quantity)
+VALUES ("Madden 19", "Electronics", 60, 33);
+
+INSERT INTO products (product_name, department_name, price, stock_quantity)
+VALUES ("Madden 19", "Electronics", 60, 33);
