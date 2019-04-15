@@ -18,6 +18,7 @@
   "homepage": "https://github.com/Rogue1037/bamazon#readme",
   "dependencies": {
     "inquire": "^0.4.8",
+    "inquirer": "^6.3.1",
     "mysql": "^2.16.0"
   }
 }
