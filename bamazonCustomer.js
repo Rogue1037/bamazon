@@ -30,7 +30,7 @@ function start() {
                     choices: function () {
                         var choiceArray = [];
                         for (var i = 0; i < results.length; i++) {
-                            choiceArray.push(results[i].product_name + " " + results[i].price + " " + results[i].department_name + " " + results[i].stock_quantity);
+                            choiceArray.push("Item ID: " + results[i].item_id + " " + "Product Name: " + results[i].product_name + " " + "$" + results[i].price + " " + "Dept: " + results[i].department_name + " " + "Inventory: " + results[i].stock_quantity);
                         }
 
                         return choiceArray;
@@ -46,40 +46,51 @@ function start() {
             ])
             .then(function (answer) {
 
-                var chosenItem = [];
-                for (var i = 0; i < results.length; i++) {
-                    if (results[i].stock_quanity === answer.choice) {
-                        chosenItem = results[i];
-                        console.log(chosenItem);
-                    }
-                }
+                var item = answer.product_name;
+                console.log(item);
 
-                if (chosenItem > parseInt(answer.stock_quanity)) {
-                    connection.query(
-                        "UPDATE products SET ? WHERE ?",
-                        [
-                            {
-                                stock_quanity: - 1
-                            },
-                            {
-                                id: results[i].item_id
-                            }
-                        ],
-                        function (error) {
-                            if (error) throw err;
-                            console.log("purchased!");
+                var quantity = answer.stock_quantity;
+
+
+                var queryInventory = 'SELECT * FROM products WHERE ?';
+
+                connection.query(queryInventory, { product_name: item }, function (err, data) {
+                    if (err) throw err;
+                    if (data.length === 0) {
+                        console.log('ERROR: Invalid Item ID. Please select a valid Item ID.');
+                        start();
+                    } else {
+                        var productData = data[0];
+
+
+                        if (quantity <= productData.stock_quantity) {
+                            console.log('Congratulations, the product you requested is in stock! Placing order!');
+
+
+                            var updateQueryInventory = 'UPDATE products SET stock_quantity = ' + (productData.stock_quantity - quantity) + ' WHERE product_name = ' + item;
+
+                            connection.query(updateQueryInventory, function (err, data) {
+                                if (err) throw err;
+
+                                console.log('Your oder has been placed! Your total is $' + productData.price * quantity);
+                                console.log('Thank you for shopping with us!');
+                                console.log("\n---------------------------------------------------------------------\n");
+
+
+                                connection.end();
+                            });
+                        } else {
+                            console.log('Sorry, there is not enough product in stock, your order can not be placed as is.');
+                            console.log('Please modify your order.');
+                            console.log("\n---------------------------------------------------------------------\n");
                             start();
                         }
-                    );
-                }
-                else {
-                    console.log("sold out. Please look at our other items.");
-                
-                }
-                start();
-                
+
+                    }
+                });
             });
     });
+
 }
 
 
