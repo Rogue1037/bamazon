@@ -46,15 +46,14 @@ function start() {
             ])
             .then(function (answer) {
 
-                var item = answer.product_name;
+                var item = answer.choice;
                 console.log(item);
-
-                var quantity = answer.stock_quantity;
+                var quantity = answer.product;
 
 
                 var queryInventory = 'SELECT * FROM products WHERE ?';
 
-                connection.query(queryInventory, { product_name: item }, function (err, data) {
+                connection.query(queryInventory, { item_id: item }, function (err, data) {
                     if (err) throw err;
                     if (data.length === 0) {
                         console.log('ERROR: Invalid Item ID. Please select a valid Item ID.');
@@ -64,7 +63,7 @@ function start() {
 
 
                         if (quantity <= productData.stock_quantity) {
-                            console.log('Congratulations, the product you requested is in stock! Placing order!');
+                            console.log('Awesome, we will ship it out right away!');
 
 
                             var updateQueryInventory = 'UPDATE products SET stock_quantity = ' + (productData.stock_quantity - quantity) + ' WHERE product_name = ' + item;
@@ -72,7 +71,7 @@ function start() {
                             connection.query(updateQueryInventory, function (err, data) {
                                 if (err) throw err;
 
-                                console.log('Your oder has been placed! Your total is $' + productData.price * quantity);
+                                console.log('Your total is $' + productData.price * quantity);
                                 console.log('Thank you for shopping with us!');
                                 console.log("\n---------------------------------------------------------------------\n");
 
@@ -80,8 +79,7 @@ function start() {
                                 connection.end();
                             });
                         } else {
-                            console.log('Sorry, there is not enough product in stock, your order can not be placed as is.');
-                            console.log('Please modify your order.');
+                            console.log('Sorry, there is not enough product in stock.');
                             console.log("\n---------------------------------------------------------------------\n");
                             start();
                         }
