@@ -37,7 +37,7 @@ function start() {
             {
                 name: "choice",
                 type: "input",
-                message: "What product would you like to buy?",
+                message: "What Item ID would you like to buy?",
                 validate: validateInput,
                 filter: Number
 
